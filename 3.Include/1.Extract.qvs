@@ -1,5 +1,5 @@
 // COMMOM
-$(musT_include='lib://1.CENIPA/3.Include/Main.qvs');
+$(musT_include='lib://1.Cenipa/3.Include/Main.qvs');
 $(musT_include='lib://1.CENIPA/3.Include/Vars.qvs');
 
 // EXTRACT

@@ -14,4 +14,5 @@ FROM [$(vPathImport)$(vFileNameOrigin)]
 (txt, utf8, embedded labels, delimiter is ';', msq);
 
 store $(vTableName) into [$(vPathExtract) $(vFileNameOutput)](QVD);
+
 Drop Table $(vTableName);
