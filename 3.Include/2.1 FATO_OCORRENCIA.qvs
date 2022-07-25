@@ -1,0 +1,46 @@
+set vTableName = 'Fato_Ocorrencia';
+set vFileNameOrigin = 'Fato_Ocorrencia.QVD';
+set vFileNameOutput = 'Fato_Ocorrencia.QVD';
+
+$(vTableName):
+LOAD *,
+    $(vExpDivisaoZero(Multplicacao,Divisao)) as CampoExtra,
+    SubField(divulgacao_relatorio_numero,'/', 1) as Orgao,
+    SubField(divulgacao_relatorio_numero,'/', 2) as Codigo,
+    SubField(divulgacao_relatorio_numero,'/', 3) as Periodo;
+LOAD
+    codigo_ocorrencia as %keyOcorrencia,
+    codigo_ocorrencia2 as %keyAeronave,
+    codigo_ocorrencia3 as %keyFator,
+    codigo_ocorrencia as Ocorrencia_Codigo,
+    // codigo_ocorrencia1,
+    // codigo_ocorrencia2,
+    // codigo_ocorrencia3,
+    // codigo_ocorrencia4,
+    ocorrencia_classificacao,
+    // ocorrencia_latitude,
+    $(vExpNullTratement(ocorrencia_latitude,0.006)) as ocorrencia_latitude,
+    // ocorrencia_longitude,
+    $(vExpNullTratement(ocorrencia_longitude,0.006)) as ocorrencia_longitude,
+    ocorrencia_cidade,
+    ocorrencia_uf,
+    ocorrencia_pais,
+    // ocorrencia_aerodromo,
+    $(vExpNullTratement(ocorrencia_aerodromo,'xxxx')) as ocorrencia_aerodromo,
+    ocorrencia_dia,
+    ocorrencia_hora,
+    investigacao_aeronave_liberada,
+    investigacao_status,
+    // divulgacao_relatorio_numero,
+    $(vExpNullTratement(divulgacao_relatorio_numero,'xxxx')) as divulgacao_relatorio_numero,
+    divulgacao_relatorio_publicado,
+    divulgacao_dia_publicacao,
+    total_recomendacoes,
+    total_aeronaves_envolvidas,
+    // CALCULOS
+    $(vExpMutiple3Factor(total_recomendacoes,total_aeronaves_envolvidas,3.14)) as Multplicacao,
+    $(vExpDivisaoZero(total_recomendacoes,total_aeronaves_envolvidas)) as Divisao,
+    ocorrencia_saida_pista
+FROM [$(vPathExtract)$(vFileNameOrigin)](QVD);
+store $(vTableName) into [$(vPathTransform)$(vFileNameOutput)](QVD);
+Drop Table $(vTableName);

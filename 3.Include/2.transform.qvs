@@ -1,0 +1,10 @@
+﻿// COMMOM
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/Main.qvs');
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/Vars.qvs');
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/Expressions.qvs');
+
+// EXTRACT
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/2.1 FATO_OCORRENCIA.qvs');
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/2.2 DIM_AERONAVE.qvs');
+$(MUST_INCLUDE='lib://1.CENIPA/3.Include/2.3 DIM_FATOR.qvs');
+

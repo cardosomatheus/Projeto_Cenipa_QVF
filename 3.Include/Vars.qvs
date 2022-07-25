@@ -1,4 +1,4 @@
-// Path de SCRIPT
+// Path de SCRIPTS
 set vPthInclude    = 'lib://1.CENIPA/3.Include/';
 
 // Path de estruturas
@@ -8,8 +8,6 @@ set vPathImport    = 'lib://1.CENIPA/5.Import/';
 
 //Path de QVDS
 set vPathExtract   =  'lib://1.CENIPA\2.QVD\1.Extract/';
-
 set vPathTransform =  'lib://1.CENIPA\2.QVD\2.Transform/';
-
 set vPathLoad      =  'lib://1.CENIPA\2.QVD\3.Load/';
 

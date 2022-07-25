@@ -1,0 +1,14 @@
+// SCRIPT EXPRESSIONS
+set vExpNullTratement = if($1 = '***' or $1 = '****' or $1 = '*' or $1 = '**' or 
+                            $1 = 'NÃO HÁ' or $1 = 'A DEFINIR' or $1 = 'ENCERRADA NO RAI'  or 
+                            $1 = '' or $1 = 'NULL' or len($1)= 0, $2, $1);
+
+set vExpMutiple3Factor = $1 * $2 * $3;
+
+set vExpDivisaoZero = $1 / (if($2 = 0, 1, $2)); 
+
+// GRAFICH EXPRESSIONS
+
+
+
+// MASTER ITENS EXPRESSIONS
