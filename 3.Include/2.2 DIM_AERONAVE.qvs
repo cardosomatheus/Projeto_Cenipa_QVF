@@ -6,7 +6,7 @@ $(vTableName):
 
 LOAD
     codigo_ocorrencia2 as %keyAeronave,
-     codigo_ocorrencia2 as Aeronave_Codigo_Ocorrencia,
+    codigo_ocorrencia2 as Codigo_Aeronave_Ocorrencia,
     aeronave_matricula,
     aeronave_operador_categoria,
     aeronave_tipo_veiculo,

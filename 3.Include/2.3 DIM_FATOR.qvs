@@ -1,19 +1,17 @@
 set vTableName = 'fator_contribuinte';
-set vFileNameOrigin = 'fator_contribuinte.csv';
+set vFileNameOrigin = 'fator_contribuinte.QVD';
 set vFileNameOutput = 'fator_contribuinte.QVD';
 
 $(vTableName):
 
 LOAD
     codigo_ocorrencia3 as %keyFator,
-    codigo_ocorrencia3 as Fator_codigo_ocorrencia,  
+    codigo_ocorrencia3 as Codigo_Fator_Ocorrencia,
     fator_nome,
     fator_aspecto,
     fator_condicionante,
     fator_area
-FROM [$(vPathImport)$(vFileNameOrigin)]
-(txt, utf8, embedded labels, delimiter is ';', msq);
-
-store $(vTableName) into [$(vPathExtract) $(vFileNameOutput)](QVD);
+FROM [$(vPathExtract)$(vFileNameOrigin)](QVD);
+store $(vTableName) into [$(vPathTransform)$(vFileNameOutput)](QVD);
 
 Drop Table $(vTableName);
